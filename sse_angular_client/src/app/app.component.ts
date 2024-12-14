@@ -1,15 +1,18 @@
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl:'./app.component.scss',
-  standalone:true
+  standalone:true,
+  providers:[]
 })
 export class AppComponent implements OnInit{
   eventsource:EventSource|undefined;
+  constructor(private http:HttpClient){}
   ngOnInit(){
     initFlowbite();
   }
@@ -44,6 +47,18 @@ export class AppComponent implements OnInit{
               p.innerHTML=`<div class="flex items-center"><span class="flex w-3 h-3 me-3 bg-red-500 rounded-full"></span> connection closed</div>`
       wind?.appendChild(p);
       wind?.scrollTo(0,wind.scrollHeight);
+    }
+  }
+  sayHelloFunction(){
+    if(this.eventsource){
+      this.http.get('http://localhost:1800/say-hello').subscribe({
+        next:(data)=>{
+          console.log("Message emitted",data);
+        },
+        error:(errMessage)=>{
+          console.log("error in emitting message",errMessage);
+        }
+      })
     }
   }
 }
