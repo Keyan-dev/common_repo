@@ -1,30 +1,49 @@
 <div class="w-full bg-gradient-to-r from-green-200 to-green-900 py-2">
     <p class="text-xl text-center text-white">Welcome to SSE {{'(Server Sending Events)'}}</p>
 </div>
-<div class="p-3 flex flex-col md:flex-row gap-3">
-    <div class="flex flex-col w-full border-2 h-96 p-3 overflow-hidden">
-        <p class="text-center mb-1">Event stream viewer</p>
-        <hr>
-        <div id="event-stream-window" class="h-full overflow-y-auto p-3">
-            
+<div class="flex flex-col md:flex-row">
+    <div class="p-3 w-full">
+        <section class="mb-1">
+            <h2 class="text-2xl font-semibold text-gray-800">What are Server-Sent Events?</h2>
+            <p class="mt-2 text-gray-600 leading-relaxed">
+              Server-Sent Events (SSE) is a simple and efficient way to push updates from the server to the client in real-time. It establishes a one-way communication channel where the server continuously sends updates to the browser over an HTTP connection. Unlike WebSockets, SSE is a lightweight alternative for applications that don't need bidirectional communication.
+            </p>
+          </section>
+          <section class="mb-1">
+            <h2 class="text-2xl font-semibold text-gray-800">Key Features of SSE</h2>
+            <ul class="mt-2 list-disc list-inside space-y-2 text-gray-600">
+              <li>Simple to implement with native browser support using the <code class="bg-gray-100 px-1 rounded">EventSource</code> API.</li>
+              <li>Works seamlessly over HTTP/HTTPS without additional protocols.</li>
+              <li>Efficient and lightweight for sending real-time updates like notifications, live scores, and logs.</li>
+            </ul>
+          </section>
+          <div class="flex flex-col w-full border-2 p-3">
+            <p class="text-center mb-1">Event stream actions</p>
+            <hr>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-3 items-center">
+                <button
+                class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                (click)="createEventSourceConnection()"
+                >Create Event stream</button>
+                <button
+                class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                (click)="sayHelloFunction()"
+                >Say Hello</button>
+                <button
+                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                (click)="closeConnection()"
+                >close event stream</button>
+            </div>
         </div>
     </div>
-    <div class="flex flex-col w-full border-2 h-96 p-3">
-        <p class="text-center mb-1">Event stream actions</p>
-        <hr>
-        <div class="grid grid-cols-3 p-5 gap-3 items-center">
-            <button
-            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-            (click)="createEventSourceConnection()"
-            >Create Event stream</button>
-            <button
-            class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-            (click)="sayHelloFunction()"
-            >Say Hello</button>
-            <button
-            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-            (click)="closeConnection()"
-            >close event stream</button>
+    <div class="p-3 flex flex-col gap-3 w-full justify-stretch">
+        <div class="flex flex-col w-full border-2 h-96 p-3 overflow-hidden">
+            <p class="text-center mb-1">Event stream viewer</p>
+            <hr>
+            <div id="event-stream-window" class="h-full overflow-y-auto p-3">
+                
+            </div>
         </div>
+
     </div>
 </div>
