@@ -1,0 +1,6 @@
+[submodule "sse_testing/sse_server"]
+	path = sse_testing/sse_server
+	url = https://github.com/Keyan-dev/sse_testing.git
+[submodule "sse_client/sse_angular_client"]
+	path = sse_client/sse_angular_client
+	url = https://github.com/Keyan-dev/sse_testing.git
