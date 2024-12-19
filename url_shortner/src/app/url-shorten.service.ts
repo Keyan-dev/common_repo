@@ -1,4 +1,4 @@
-import { environment } from './../environments';
+import { environment } from '../environment';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 interface urlPayload{

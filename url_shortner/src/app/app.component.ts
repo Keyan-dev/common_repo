@@ -1,9 +1,7 @@
 import { UrlShortenService } from './url-shorten.service';
-import { CopyClipboard, initFlowbite, Modal } from 'flowbite';
+import { initFlowbite, Modal } from 'flowbite';
 import { AfterViewInit, Component, input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-root',
   imports: [ReactiveFormsModule],
